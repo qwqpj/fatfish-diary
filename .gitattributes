@@ -1,0 +1,13 @@
+# 统一换行符：不然 Windows 上 clone 下来会看到整个仓库都"被改动过"
+* text=auto
+
+# 二进制资源明确标出来，别让 git 去猜
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.webp  binary
+*.gif   binary
+*.ico   binary
+
+# 生成物/预览产物在 diff 里没有意义
+docs/screenshot.png -diff

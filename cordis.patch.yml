@@ -1,0 +1,11 @@
+# fatfish-diary bundle patch.
+#
+# 只贡献一行 host 插件。Browser 半边由 package.json 的 `dsh.client` 清单驱动加载
+# （bundle id = 包名 `fatfish-diary`，文件 exports["./client"] → lib/client.js）。
+#
+# Host 半边自己通过 ctx.webServer 注册 /fatfish-diary/* 同源路由，
+# 浏览器半边只 fetch 这些路由，两边不共享进程。
+
+- insert:
+    - id: fatfish-diary
+      name: 'fatfish-diary'

@@ -1,0 +1,72 @@
+{
+  "name": "fatfish-diary",
+  "version": "1.0.0",
+  "description": "大肥鱼日记 · 点一下侧栏按钮，就让「吃白饭的大肥鱼」（DeepSeek 鲸鱼娘）以 harness 自己的第一人称，把今天陪你干的事写成一篇日记，永久留在硬盘上。Fatfish Diary for DeepSeek Harness.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/",
+    "scripts/",
+    "assets/README.md",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "diary",
+    "journal",
+    "fatfish",
+    "日记",
+    "大肥鱼"
+  ],
+  "license": "MIT",
+  "author": "qwqpj",
+  "contributors": [
+    {
+      "name": "DeepSeek Harness (deepseek-flash)",
+      "url": "https://www.deepseek.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qwqpj/fatfish-diary.git"
+  },
+  "homepage": "https://github.com/qwqpj/fatfish-diary#readme",
+  "bugs": {
+    "url": "https://github.com/qwqpj/fatfish-diary/issues"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime"
+      ],
+      "platform": "web"
+    }
+  },
+  "scripts": {
+    "check": "node --input-type=module -e \"await import('./lib/index.js'); await import('./lib/persona.js'); console.log('ok')\"",
+    "test": "node scripts/test.mjs && node scripts/http-test.mjs",
+    "test:unit": "node scripts/test.mjs",
+    "test:http": "node scripts/http-test.mjs",
+    "probe": "node scripts/probe.mjs",
+    "preview": "node scripts/preview.mjs",
+    "preview:panel": "node scripts/panel-preview.mjs",
+    "preview:diary": "node scripts/render-preview.mjs",
+    "diagnose": "node scripts/diagnose.mjs"
+  },
+  "engines": {
+    "node": ">=22.15.0"
+  }
+}

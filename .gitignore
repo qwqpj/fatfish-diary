@@ -1,0 +1,25 @@
+# 依赖（本插件零运行依赖，这个目录只会出现在开发机上）
+node_modules/
+
+# 预览产物：用无头 Chrome 截图用的中间文件，不入库
+scripts/.preview/
+.preview/
+
+# 安装到 profile 时备份的原始配置，含本机路径信息
+.profile-backup/
+
+# assets/.original/ 是 trim-avatar.py 的裁切母版（原始未裁图），
+# 只是本地工作用的备份；仓库里发的是裁好的 assets/avatar.png。
+assets/.original/
+
+# 各平台垃圾文件
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+*.tmp
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
